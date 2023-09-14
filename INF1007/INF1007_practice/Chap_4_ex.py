@@ -20,4 +20,11 @@ for charac in chain:
     if 'A' <= charac <= 'Z':
         result = False
         break
-        
+    
+chaine = 'Hello'
+start_check = 'He'
+for i in range(len(start_check)):
+    print()
+    #   
+    
+print(chaine[:len(start_check)] == start_check)
