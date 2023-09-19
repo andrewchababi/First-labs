@@ -28,3 +28,4 @@ for i in range(len(start_check)):
     #   
     
 print(chaine[:len(start_check)] == start_check)
+
