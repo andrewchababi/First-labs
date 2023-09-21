@@ -82,3 +82,45 @@ def estDateValide(jour, mois, annee):
     else:
         return False
 
+
+# Cette fonction vérifie si le jour de la semaine donné en paramètre est valide.
+# Elle renvoie True si le jour est l'un des sept jours de la semaine, sinon False.
+def estJourValide(jourSemaine):
+    # La fonction in permet de vérifier si jourSemaine est présent dans la liste des jours valides.
+    # La liste contient les sept noms des jours de la semaine en français.
+    # Si jourSemaine est dans cette liste, la fonction renvoie True, sinon elle renvoie False.
+    jours = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche']
+    
+    jourValide = jourSemaine in jours
+    
+    return jourValide
+
+
+def saisirMois():
+    # Liste des noms de mois
+    mois_liste = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre']
+
+    # Demande à l'utilisateur d'entrer le nom du mois
+    choix_de_mois = input("Entrez le nom du mois: ").lower()
+    # Recherche la position du mois dans la liste (l'index commence à 0)
+    # Si le mois existe dans la liste, renvoie son index, sinon renvoie 0
+    for mois in mois_liste:
+        if mois == choix_de_mois:
+            return mois_liste.index(mois)
+         
+    return 0
+         
+         
+# Cette fonction permet à l'utilisateur de saisir une date en demandant le jour, le mois et l'année.
+def saisirDate():
+    # Demande à l'utilisateur de saisir le jour de la date et le convertit en entier.
+    jour = int(input("Entrez le jour de la date: "))
+    
+    # Appelle la fonction saisirMois() pour obtenir le mois de la date.
+    mois = saisirMois()
+    
+    # Demande à l'utilisateur de saisir l'année de la date et la convertit en entier.
+    annee = int(input("Entrez l'annee de la date: "))
+
+    # Retourne les trois éléments saisis (jour, mois, année) sous forme de tuple.
+    return jour, mois, annee
