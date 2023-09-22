@@ -106,7 +106,7 @@ def saisirMois():
     # Si le mois existe dans la liste, renvoie son index, sinon renvoie 0
     for mois in mois_liste:
         if mois == choix_de_mois:
-            return mois_liste.index(mois)
+            return mois_liste.index(mois) + 1
          
     return 0
          
@@ -124,3 +124,24 @@ def saisirDate():
 
     # Retourne les trois éléments saisis (jour, mois, année) sous forme de tuple.
     return jour, mois, annee
+
+
+
+# Définition d'une fonction pour saisir une date valide
+def saisirDateValide():
+    # Appelle la fonction saisirDate() pour obtenir une date sous forme de jour, mois et année
+    jour , mois, annee = saisirDate()
+
+    # Tant que la date n'est pas valide selon la fonction estDateValide(),
+    # continuer à demander à l'utilisateur de saisir une date valide
+    while not estDateValide(jour,mois,annee):
+        # Affiche un message indiquant que la date n'est pas valide
+        print("Vous n'avez pas entre une date valide.")
+        
+        # Demande à l'utilisateur de saisir une nouvelle date
+        jour , mois, annee = saisirDate() 
+
+    # Une fois que l'utilisateur a saisi une date valide, retourne cette date
+    return jour, mois, annee
+
+print(saisirMois())
