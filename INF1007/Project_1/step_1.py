@@ -144,4 +144,39 @@ def saisirDateValide():
     # Une fois que l'utilisateur a saisi une date valide, retourne cette date
     return jour, mois, annee
 
-print(saisirMois())
+
+
+
+# Définition d'une fonction pour convertir un numéro en jour de la semaine en utilisant différents algorithmes.
+def conversionJourSemaine(numero, algorithme):
+    #utiliser un try_except pour la gestion des erreurs
+    try:
+        # Liste des noms des jours de la semaine
+        jours_semaine = ['samedi', 'dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi']
+
+        # Vérification si le numéro est dans l'intervalle valide (0 à 6 inclus).
+        if numero >= 0 and numero <= 6:
+            # Choix de l'algorithme de conversion en fonction de l'argument 'algorithme'.
+            if algorithme == "zeller":
+            # Pour l'algorithme de Zeller, le numéro reste inchangé.
+                pass
+            # Pour l'algorithme de Schwerdtfeger, on ajuste le numéro en utilisant modulo 7.
+            elif algorithme == "schwerdtfeger":
+                numero = (numero + 1) % 7
+            
+            # Si l'algorithme choisi n'est pas reconnu, une exception est levée.
+            else:
+                print("L'algorithme choisi n'est pas valide.")
+
+            # Récupérer le nom du jour de la semaine à partir de la liste
+            jours_semaine = jours_semaine[numero]
+
+            # Renvoyer le jour de la semaine calculé.
+            return jours_semaine
+        
+        # Si le numéro n'est pas dans l'intervalle valide, une exception est levée.
+        return "Le numero n'est pas valide"
+
+    # Gestion des exceptions en affichant un message d'erreur.
+    except ValueError:
+        print("error")
