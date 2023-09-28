@@ -188,9 +188,8 @@ def partieAnnuelleAnnee(annee):
     #utiliser un try_except pour la gestion des erreurs
     try:
         # Vérifie si l'année n'est pas un nombre positif scalaire entier.
-        estNombrePositifScalaireEntier()
             # Si ce n'est pas le cas, lève une exception ValueError avec un message explicatif.
-        if not estNombrePositifScalaireEntier():
+        if not estNombrePositifScalaireEntier(annee):
             raise Exception("L'argument doit etre un nombre positif, scalaire et entier")
         # Calcule le reste de la division de l'année par 100.
         return annee % 100
@@ -213,5 +212,28 @@ def partieSeculaireAnnee(annee):
     except Exception as e:
         print(e)
         
-print(partieSeculaireAnnee(-2009))
 
+# Fonction qui calcule le jour de la semaine en utilisant l'algorithme de Schwerdtfeger
+def schwerdtfeger(jour, mois, annee):
+
+    # Liste des valeurs associées aux mois
+    mois_valeurs = [0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4]
+    
+    # Liste des valeurs associées à la partie séculaire de l'année
+    partie_seculaire_valeurs = [0, 5, 3, 1]
+    
+    # Si le mois est janvier ou février, on le compte comme mois 13 ou 14 de l'année précédente
+
+    # Calcul de la partie séculaire de l'année (c)
+    
+    # Calcul de la partie annuel de l'année (g)
+    
+    # Calcul du facteur e lié au mois.
+
+    # Calcul du facteur f lié à l'année.
+
+    
+    # Calcul du jour de la semaine en utilisant l'algorithme de Schwerdtfeger
+    # en prenant en compte le jour (jour), le mois (e), la partie séculaire de l'année (f),
+    # et le nombre d'années depuis le début du siècle (g)
+    return
