@@ -191,13 +191,13 @@ def partieAnnuelleAnnee(annee):
         estNombrePositifScalaireEntier()
             # Si ce n'est pas le cas, lève une exception ValueError avec un message explicatif.
         if not estNombrePositifScalaireEntier():
-            raise Exception()
+            raise Exception("L'argument doit etre un nombre positif, scalaire et entier")
         # Calcule le reste de la division de l'année par 100.
         return annee % 100
     
     # En cas d'exception ValueError, affiche le message d'erreur.
-    except:
-        print("L'argument doit etre un nombre positif, scalaire et entier")
+    except Exception as e:
+        print(e)
         
 
 # Cette fonction prend en entrée une année et retourne la partie séculaire de cette année en divisant par 100.
