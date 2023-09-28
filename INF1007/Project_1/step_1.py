@@ -181,3 +181,37 @@ def conversionJourSemaine(numero, algorithme):
     # Gestion des exceptions en affichant un message d'erreur.
     except Exception as e:
         print(e)
+
+
+# Définition d'une fonction appelée partieAnnuelleAnnee prenant une année en entrée.
+def partieAnnuelleAnnee(annee):
+    #utiliser un try_except pour la gestion des erreurs
+    try:
+        # Vérifie si l'année n'est pas un nombre positif scalaire entier.
+        estNombrePositifScalaireEntier()
+            # Si ce n'est pas le cas, lève une exception ValueError avec un message explicatif.
+        if not estNombrePositifScalaireEntier():
+            raise Exception()
+        # Calcule le reste de la division de l'année par 100.
+        return annee % 100
+    
+    # En cas d'exception ValueError, affiche le message d'erreur.
+    except:
+        print("L'argument doit etre un nombre positif, scalaire et entier")
+        
+
+# Cette fonction prend en entrée une année et retourne la partie séculaire de cette année en divisant par 100.
+def partieSeculaireAnnee(annee):
+    #utiliser un try_except pour la gestion des erreurs
+    try:
+        # Vérifie si l'année est un nombre positif, scalaire (entier).
+        if not estNombrePositifScalaireEntier(annee):
+            raise Exception("L'annee doit etre un nombre positif, scalaire et entier")
+        # Divise l'année par 100 pour obtenir la partie séculaire.
+        return (annee // 100)
+    # En cas d'exception ValueError, affiche le message d'erreur..
+    except Exception as e:
+        print(e)
+        
+print(partieSeculaireAnnee(-2009))
+
