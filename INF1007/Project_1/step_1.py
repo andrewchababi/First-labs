@@ -175,8 +175,9 @@ def conversionJourSemaine(numero, algorithme):
             return jours_semaine
         
         # Si le numéro n'est pas dans l'intervalle valide, une exception est levée.
-        return "Le numero n'est pas valide"
+        else:
+            raise Exception("Le numero entre n'est pas valide.")
 
     # Gestion des exceptions en affichant un message d'erreur.
-    except ValueError:
-        print("error")
+    except Exception as e:
+        print(e)
