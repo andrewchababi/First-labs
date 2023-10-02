@@ -223,17 +223,23 @@ def schwerdtfeger(jour, mois, annee):
     partie_seculaire_valeurs = [0, 5, 3, 1]
     
     # Si le mois est janvier ou février, on le compte comme mois 13 ou 14 de l'année précédente
-
+    if mois == 1:
+        mois = 13
+        annee -= 1
+    if mois == 2:
+        mois = 14
+        annee -= 1
     # Calcul de la partie séculaire de l'année (c)
-    
+    c = partieSeculaireAnnee(annee)
     # Calcul de la partie annuel de l'année (g)
-    
+    g = partieAnnuelleAnnee(annee)
     # Calcul du facteur e lié au mois.
-
+    e = mois_valeurs[mois-1]
     # Calcul du facteur f lié à l'année.
-
+    f = partie_seculaire_valeurs[c%4]
     
     # Calcul du jour de la semaine en utilisant l'algorithme de Schwerdtfeger
     # en prenant en compte le jour (jour), le mois (e), la partie séculaire de l'année (f),
     # et le nombre d'années depuis le début du siècle (g)
-    return
+    h= int((jour + e + f + g + (g/4)) % 7)
+    return h
