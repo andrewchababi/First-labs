@@ -248,10 +248,9 @@ def schwerdtfeger(jour, mois, annee):
 # Définition de la fonction zeller qui prend en entrée le jour, le mois et l'année
 def zeller(jour, mois, annee):
     # Si le mois est janvier (1) ou février (2), on les traite comme les mois 13 et 14 de l'année précédente
-    if mois == 1:
-        mois = 13
-    elif mois == 2:
-        mois = 14
+    if mois in [1,2]:
+        mois += 12
+        annee -= 1
     d = jour
     m = mois
     # Calcul de la partie "y" de l'année en utilisant la fonction partieAnnuelleAnnee()
@@ -259,8 +258,9 @@ def zeller(jour, mois, annee):
     # Calcul de la partie "c" de l'année en utilisant la fonction partieSeculaireAnnee()
     c = partieSeculaireAnnee(annee)
     # Calcul du jour de la semaine en utilisant l'algorithme de Zeller
-    h = int((d + ((13*(m+1))/5) + y +(y/4) + (c/4) - 2*c ) % 7)
+    h = int((d + ((13 * (m + 1)) // 5) + y +(y//4) + (c//4) - 2*c ) % 7)
     return h
+    
 
 
 
@@ -311,7 +311,7 @@ def afficheJourDate(jour, mois, annee, jourSemaine):
         # Utilisation de l'indice correspondant au mois pour obtenir le nom du mois
         nom_mois = mois_str[mois - 1]
         # Affichage de la date formatée
-        print(f"Le {jour} {nom_mois} {annee} est un mercredi.")
+        print(f"Le {jour} {nom_mois} {annee} est un {jourSemaine}")
     # Gestion des exceptions et affichage d'un message d'erreur en cas de problème
     except Exception as e:
         print(e)
@@ -328,3 +328,6 @@ def jourDeLaSemaine():
     jour_semaine = jourSemaineAlgo(jour, mois, annee, choix_utilisateur)
     # Affichage du résultat (la date et le jour de la semaine)
     afficheJourDate(jour, mois, annee, jour_semaine)
+
+
+jourDeLaSemaine()
