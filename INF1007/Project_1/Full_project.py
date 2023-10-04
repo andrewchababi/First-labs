@@ -243,3 +243,88 @@ def schwerdtfeger(jour, mois, annee):
     # et le nombre d'années depuis le début du siècle (g)
     h= int((jour + e + f + g + (g/4)) % 7)
     return h
+
+
+# Définition de la fonction zeller qui prend en entrée le jour, le mois et l'année
+def zeller(jour, mois, annee):
+    # Si le mois est janvier (1) ou février (2), on les traite comme les mois 13 et 14 de l'année précédente
+    if mois == 1:
+        mois = 13
+    elif mois == 2:
+        mois = 14
+    d = jour
+    m = mois
+    # Calcul de la partie "y" de l'année en utilisant la fonction partieAnnuelleAnnee()
+    y = partieAnnuelleAnnee(annee)
+    # Calcul de la partie "c" de l'année en utilisant la fonction partieSeculaireAnnee()
+    c = partieSeculaireAnnee(annee)
+    # Calcul du jour de la semaine en utilisant l'algorithme de Zeller
+    h = int((d + ((13*(m+1))/5) + y +(y/4) + (c/4) - 2*c ) % 7)
+    return h
+
+
+
+def jourSemaineAlgo(jour, mois, annee, algorithme):
+    try:
+        # Vérifie si la date est valide en utilisant la fonction estDateValide
+        if not estDateValide(jour, mois, annee):
+            raise Exception("Date n'est pas valide")
+
+        # Liste des algorithmes valides
+        valid_algorithms = ['zeller', 'schwerdtfeger']
+
+        # Vérifie si l'algorithme passé en paramètre est dans la liste des algorithmes valides
+        if algorithme not in valid_algorithms:
+            raise Exception("Algorithme n'est pas valide")
+        # Sélectionne l'algorithme approprié en fonction de la valeur de 'algorithme'
+        if algorithme == "zeller":
+            num_jour = zeller(jour, mois, annee)
+        elif algorithme == "schwerdtfeger":
+            num_jour = schwerdtfeger(jour, mois, annee)
+
+        # Convertit le numéro du jour en nom de jour de la semaine en utilisant la fonction conversionJourSemaine
+        nom_jour = conversionJourSemaine(num_jour, algorithme)
+        # Renvoie le nom du jour de la semaine
+        return nom_jour 
+         
+    # Gère les exceptions en affichant un message d'erreur
+    except Exception as e:
+        print(str(e))
+        return None
+    
+
+def afficheJourDate(jour, mois, annee, jourSemaine):
+    try:
+        # Vérification de la validité de la date en appelant estDateValide(jour, mois, annee)
+        if not estDateValide(jour, mois, annee):
+            raise Exception("Date non valide")
+        
+        # Vérification de la validité du jour de la semaine en appelant estJourValide(jourSemaine)
+        if not estJourValide(jourSemaine):
+            raise Exception("Jour de la semaine non valide")
+
+        # Liste des noms des mois
+        mois_str = [
+            'janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre'
+        ]
+
+        # Utilisation de l'indice correspondant au mois pour obtenir le nom du mois
+        nom_mois = mois_str[mois - 1]
+        # Affichage de la date formatée
+        print(f"Le {jour} {nom_mois} {annee} est un mercredi.")
+    # Gestion des exceptions et affichage d'un message d'erreur en cas de problème
+    except Exception as e:
+        print(e)
+        return None
+    
+
+# Définition de la fonction principale pour calculer le jour de la semaine
+def jourDeLaSemaine():
+    # Demande à l'utilisateur de choisir l'algorithme à utiliser (zeller ou schwerdtfeger)
+    choix_utilisateur = input("Quel algorithme voulez-vous utiliser (zeller ou schwerdtfeger): ")
+    # Saisie de la date (jour, mois, année) en utilisant une fonction saisirDateValide()
+    jour, mois, annee = saisirDateValide()
+    # Calcul du jour de la semaine en utilisant l'algorithme spécifié
+    jour_semaine = jourSemaineAlgo(jour, mois, annee, choix_utilisateur)
+    # Affichage du résultat (la date et le jour de la semaine)
+    afficheJourDate(jour, mois, annee, jour_semaine)
