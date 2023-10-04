@@ -101,4 +101,12 @@ def num_sort():
     print(sorted_list)
     
 
-num_sort()
+
+
+def meter_to_feet():
+    meter = float(input("Please enter the measurment in meters"))
+    feet = meter*3.28
+    return round(feet,2)
+
+
+    
