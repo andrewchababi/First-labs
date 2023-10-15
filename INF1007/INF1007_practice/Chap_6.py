@@ -3,8 +3,8 @@
 #deuxieme et de trouver si les elements sont identique
 
 list_1 = [1,2,3,4,5]
-list_2 = [2,4,5,6,7]
-
+list_2 = [1,2,3,4,5]
+"""
 #1
 if len(list_1)== len(list_2):
     resulta = True
@@ -75,3 +75,26 @@ for character in text:
 
     else: 
         print("all good")
+
+
+"""
+
+def is_list_ordered():
+    liste = []
+    for _ in range(10):
+        num = int(input("input 10 numbers"))
+        liste.append(num)
+    
+    sorted_list = sorted(liste)
+    
+    return liste == sorted_list
+
+#print(is_list_ordered())
+
+test = [1,2,2,3]
+
+def is_doubon(liste):
+    return len(liste) != len(set(liste))
+print(is_doubon(test))
+
+

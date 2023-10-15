@@ -101,3 +101,12 @@ def nmb_mot_phrase_une_ligne(chaine):
     return  len([space for space in chaine if space == " "]) +1 if chaine else 0 
         
 #print(nmb_mot_phrase_une_ligne("mon nom est Andrew"))
+
+def est_nombre_premier(nombre):
+    for x in range(2,int(nombre)//2):
+        if nombre % x == 0:
+            return "n'est pas premier"
+    else:
+        print("est premier")
+
+print(est_nombre_premier(15))
