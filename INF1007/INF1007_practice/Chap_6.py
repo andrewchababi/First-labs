@@ -95,6 +95,60 @@ test = [1,2,2,3]
 
 def is_doubon(liste):
     return len(liste) != len(set(liste))
-print(is_doubon(test))
+#print(is_doubon(test))
 
 
+# Écrire un programme qui calcule la moyenne des notes rentrées
+# dans un dictionnaire ayant pour clés le nom des étudiants. Par la
+# suite, le programme doit retourner le nom de l’étudiant ayant la
+# meilleure note, dans la même structure de données.
+
+notes_etudiants = {
+    "Alice": 90,
+    "Bob": 85,
+    "Charlie": 78,
+    "David": 92,
+}
+
+moyen = sum(notes_etudiants.values())/ len(notes_etudiants)
+
+highest_note = None
+nom = None
+
+for name , note in notes_etudiants.items():
+    if highest_note is None or note > highest_note:
+        highest_note = note
+        nom = name
+    
+#print(highest_note, nom)
+
+
+
+liste_initiale = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+liste_pair = [num if num%2 == 0 else 0 for num in liste_initiale]
+
+liste_initiale = [[0, 'a'], [2, 'b'], [3, 'c']]
+nouvelle_liste = []
+for i in liste_initiale :
+    for n in i :
+        nouvelle_liste.append(n*2)
+
+nouvelle_liste = [n*2 for i in liste_initiale for n in i]
+
+#print(nouvelle_liste)
+
+
+phrase = "sdlfkjwaeoijfdlsakjfosiasjldkhjfa;lsdjfaosijenoa[o8ifhseh]"
+
+hist = {}
+for char in phrase:
+    if char in hist:
+        hist[char] += 1
+    else:
+        hist[char] = 1
+
+print(hist)
+
+hist = {char: phrase.count(char) for char in phrase}
+
+print(hist)
