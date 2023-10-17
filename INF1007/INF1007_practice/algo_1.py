@@ -109,4 +109,69 @@ def meter_to_feet():
     return round(feet,2)
 
 
-    
+
+
+def diviser(numerateur, denominateur):
+    somme = 0
+    for i in range(len(numerateur)):
+        somme += denominateur[0] // numerateur[i]
+    return somme
+
+
+def est_bissextile(annee):
+    # On suppose que annee > 0
+    if annee % 4 == 0:
+        if annee % 100 == 0:
+            return False
+        elif annee % 400:
+            return True
+        else:
+            return True
+    else:
+        return False
+#print(est_bissextile(1999))
+       
+        
+"INF1010 - Programation 1, LOG1000 - Genie Logiciel, INF1040 - PresentionOral"
+        
+def extrair_Cour(chaine):
+    mot_de_chaine = chaine.split(", ")
+    liste_de_cour = []
+    for liste in mot_de_chaine:
+        if liste.startswith("INF"):
+            liste_de_cour.append(liste[:7])
+    return liste_de_cour
+
+#print(extrair_Cour("INF1010 - Programation 1, LOG1000 - Genie Logiciel, INF1040 - PresentionOral"))
+            
+
+
+def extraireCours(chaine):
+    liste_de_cours = []
+    mot = chaine.split(" ")
+    print(mot)
+    for word in mot:
+        if word[:3] == "INF":
+            liste_de_cours.append(word)
+    return liste_de_cours
+
+#print(extraireCours("INF1010 - Programation 1, LOG1000 - Genie Logiciel, INF1040 - PresentionOral"))
+
+liste = [0,0,0,1,1,1,3,3,3,32,2,2]
+
+def compression(liste):
+    i = 0
+    resultat = []
+    while i< len(liste):
+        compteur = 0
+        for j in range(i, len(liste)):
+            if liste[j] != liste[i]:
+                break
+            compteur += 1
+        resultat.append((liste[i],compteur))
+        i += compteur
+        
+    return resultat
+print(compression(liste))
+        
+        
