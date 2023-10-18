@@ -79,6 +79,34 @@ for character in text:
 
 """
 
+def bracket_check(phrase):
+    mape = {"(":")", "[":"]", "{":"}"}
+    pile = []
+    resulta = False
+    for char in phrase:
+        if char in mape:
+            pile.append(char)
+        elif len(pile) > 0 :
+            if char == mape[pile.pop()]:
+                resulta = True
+            else:
+                resulta = False
+                break
+        else:
+            resulta = False
+            break
+    if len(pile) != 0:
+        resulta = False
+    print(resulta)
+                    
+    
+    
+print(bracket_check("[[(())]]"))
+        
+            
+    
+
+
 def is_list_ordered():
     liste = []
     for _ in range(10):

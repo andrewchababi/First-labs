@@ -173,5 +173,29 @@ def compression(liste):
         
     return resultat
 print(compression(liste))
-        
-        
+
+
+donnees = [21, 21, 22, 23, 23]
+
+def compresse(donnees):
+    if len(donnees) == 0: #TODO: Cas d'une liste vide
+        return False    #TODO: On arrête la fonction
+    i = 1
+    valeur = donnees[0]
+    position = 0
+    compteur = 1
+    while True:
+        if i == len(donnees): #TODO: Si on est arrivé à la fin de la liste
+            del donnees[position:]
+            donnees.append((valeur,compteur))
+            break     #TODO: Arrêt de la boucle
+        if donnees[i] == valeur: #TODO: Si on trouve la même valeur que précédemment
+            compteur +=1         #TODO: On incrémente le compteur
+            i += 1
+        else:           #TODO: Si on trouve une autre valeur
+            del donnees[position: i]
+            donnees.insert(position, (valeur, compteur))
+            compteur = 1
+            position += 1
+            valeur = donnees[position]
+            i = position + 1
