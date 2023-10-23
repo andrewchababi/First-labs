@@ -103,10 +103,10 @@ def nmb_mot_phrase_une_ligne(chaine):
 #print(nmb_mot_phrase_une_ligne("mon nom est Andrew"))
 
 def est_nombre_premier(nombre):
-    for x in range(2,int(nombre)//2):
+    if nombre < 2:
+        return False
+    for x in range(2, int(nombre**0.5) + 1):  # Correction here for square root calculation
         if nombre % x == 0:
-            return "n'est pas premier"
-    else:
-        print("est premier")
+            return False
+    return True
 
-print(est_nombre_premier(15))
