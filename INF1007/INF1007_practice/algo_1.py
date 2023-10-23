@@ -199,3 +199,25 @@ def compresse(donnees):
             position += 1
             valeur = donnees[position]
             i = position + 1
+            
+text = "[[(())]]"
+   
+def bracket(text):
+    diction = {"(":")", "[":"]", "{":"}"}
+    pile = []
+    
+    for char in text:
+        if char in diction:
+            pile.append(char)
+            if len(pile) > 0 :
+                if char == diction[pile.pop()]:
+                    print("lol")
+            else:
+                return False
+    
+    return len(pile) == 0
+    
+print(bracket(text))
+    
+    
+    
