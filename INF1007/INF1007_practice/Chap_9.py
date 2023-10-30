@@ -33,7 +33,7 @@ square_matrix = np.array([[np.random.randint(0,1)] for i in range(3)])
 #print(square_matrix)                                                        #fail
 
 
-n = 1000
+n = 100000000
 
 #lib way 
 x = np.random.random(n)
