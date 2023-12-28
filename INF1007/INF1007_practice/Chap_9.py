@@ -17,32 +17,32 @@ for e in a :
     
 #1 cree un array presentant 64 valeurs uniformement repartie entre -1.3 et 2.5
 
-num_1 = -1.3 
-num_2 = 2.5
-diff = (num_2-num_1)/64 
-vec = [num_1 + i*diff for i in range(64)]
-#print(vec)
+# num_1 = -1.3 
+# num_2 = 2.5
+# diff = (num_2-num_1)/64 
+# vec = [num_1 + i*diff for i in range(64)]
+# #print(vec)
 
 
-libtest = (np.linspace(num_1,num_2, num= 64))
-#print(libtest)
+# libtest = (np.linspace(num_1,num_2, num= 64))
+# #print(libtest)
 
-#2 cree un programme qui calcule la valeur de pi par la methode de montecarlau
+# #2 cree un programme qui calcule la valeur de pi par la methode de montecarlau
  
-square_matrix = np.array([[np.random.randint(0,1)] for i in range(3)])
-#print(square_matrix)                                                        #fail
+# square_matrix = np.array([[np.random.randint(0,1)] for i in range(3)])
+# #print(square_matrix)                                                        #fail
 
 
-n = 100000000
+n = 1
 
 #lib way 
-x = np.random.random(n)
-y = np.random.random(n)
-distance = np.sqrt(x**2 + y**2)
-in_circle = distance <= 1
-print(in_circle)
-pi = (4* (np.count_nonzero(in_circle)))/n
-print(pi)
+# x = np.random.random(n)
+# y = np.random.random(n)
+# distance = np.sqrt(x**2 + y**2)
+# in_circle = distance <= 1
+# print(in_circle)
+# pi = (4* (np.count_nonzero(in_circle)))/n
+# print(pi)
 
 """
 #hardcoding way
@@ -58,11 +58,29 @@ for i in range(n):
 print(4*counter / n)
 """
 
-plt.figure(figsize=(5, 5))
-plt.scatter(x,y)
-plt.tight_layout()
-plt.show()
+# plt.figure(figsize=(5, 5))
+# plt.scatter(x,y)
+# plt.tight_layout()
+# plt.show()
 
+
+# Create a range of x values from 0 to 2*pi
+x = np.linspace(0, 2 * np.pi, 100)
+
+# Compute the sine of these values
+y = np.sin(x)
+
+# Create the plot
+plt.figure(figsize=(8, 4))  # Set the figure size
+plt.plot(x, y, label='Sine Wave', color='blue')  # Plot x and y
+plt.title('Sine Wave Example')  # Add a title
+plt.xlabel('X-axis (radians)')  # Add X-axis label
+plt.ylabel('Y-axis (value)')  # Add Y-axis label
+plt.legend()  # Add a legend
+plt.grid(True)  # Add gridlines
+
+# Show the plot
+plt.show()
 
 
 

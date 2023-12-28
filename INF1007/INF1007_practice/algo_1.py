@@ -172,7 +172,7 @@ def compression(liste):
         i += compteur
         
     return resultat
-print(compression(liste))
+# print(compression(liste))
 
 
 donnees = [21, 21, 22, 23, 23]
@@ -217,7 +217,13 @@ def bracket(text):
     
     return len(pile) == 0
     
-print(bracket(text))
+# print(bracket(text))
     
     
-    
+def factioriel(n):
+    if n <= 1:
+        return 1 
+    else:
+        return n * factioriel(n-1)
+
+print(factioriel(3))   
