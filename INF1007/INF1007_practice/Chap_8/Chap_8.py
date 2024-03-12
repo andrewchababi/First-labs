@@ -22,20 +22,20 @@ f1.close()
 f2.close()
 '''
 #2
-"""
-with open('fichier_2.txt', mode='r') as f:
-    noms_columns = f.readline().split(',')
+
+with open('fichier_2.csv', mode='r') as f:
+    noms_columns = f.readline().strip("\n").split(',')
     donnees = {nom : [] for nom in noms_columns}
-    for ligne in f:
-        d = ligne.split(",")
-        donnees['Jour'].append(d[0])
+    """for ligne in f:
+        d = ligne.strip("\n").split(",")
+        donnees['Jour'].append(d[0])            
         donnees['Precip'].append(d[1])
         donnees['Temp'].append(d[2])   
-        donnees['Vent\n'].append(d[3])     
+        donnees['Vent'].append(d[3])  """   
 print(donnees)
-"""    
+   
 
-import csv
+"""import csv
 
 with open('fichier_2.csv', mode='r') as f:
     noms_colonnes = f.readline().split(',')
@@ -63,4 +63,4 @@ pickle.dump(couleurs, open("sauvegarde.p", "wb"))
 import pickle
 couleurs = pickle.load(open("sauvegarde.p", "rb"))
 
-print(type(donee), donee)
+print(type(donee), donee)"""
